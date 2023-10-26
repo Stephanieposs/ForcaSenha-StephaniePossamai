@@ -5,6 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Força Senha</title>
+    <style>
+        * {
+            justify-content: space-around;
+            text-align: center;
+            background-color: rgb(43, 42, 42);
+            
+        }
+        #idDiv{
+            height: 4px;
+            
+        }
+
+
+    </style>
 </head>
 
 <body>
@@ -12,11 +26,12 @@
         <fieldset>
             <label for="">Verificar força da senha</label>
             <div>
-                <input type="text" name="nmPassword" id="idPassword" placeholder="password">
+                <input type="password" name="nmPassword" id="idPassword" placeholder="password">
                 <button type="button" id="idButton">SHOW</button>
             </div>
-            <label for="" id="idIntensidadeSenha">Senha fraca</label>
+            <output id="idOut"></output>
         </fieldset>
+        <div id="idDiv"></div>
     </form>
 
 </body>

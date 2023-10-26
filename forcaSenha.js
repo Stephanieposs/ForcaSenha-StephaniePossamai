@@ -1,10 +1,13 @@
 var senha = document.getElementById("idPassword")
-var botaoHide = document.getElementById("idButton").value
-var mensagemIntensidade = document.getElementById("idIntensidadeSenha").value
+var botaoHide = document.getElementById("idButton")
+var out = document.getElementById("idOut");
+var div = document.getElementById("idDiv");
 var indexMain = 1;
 var index = 1;
+var pontosTotais =0;
 
-senha.addEventListener("input", pontosSenha)
+senha.addEventListener("input", intensidadeSenha)
+botaoHide.addEventListener("click", show);
 
 function pontosSenha() {
 
@@ -29,10 +32,10 @@ function pontosSenha() {
 
     var pontosExtras = (pontoNumero() + pontoLower() + pontoUpper()+pontoSimbolos())
 
-
     console.log(pontosExtras)
-    //return pontos + pontosExtras
 
+    pontosTotais = pontos + pontosExtras;
+    console.log("total: "+pontosTotais)
 
     indexMain++
 
@@ -83,9 +86,31 @@ function pontoUpper() {
     return 0
 }
 
-/*Total de pontos possíveis: 10.
-A senha será considerada "Forte" se somar 9 ou mais pontos;
-A senha será considerada "Moderada" se somar mais de 5 e menos de 9 pontos;
-A senha será considerada "Fraca" se somar 5 ou menos pontos. */
+function intensidadeSenha() {
+    pontosSenha();
+    if (pontosTotais <= 5) {
+        console.log("Passou aqui no pontos total <-=5")
+        out.value = "Senha Fraca";
+        out.style = "color:red;";
+        div.style = "background-color:red;width: 25%;";
+    }else if(pontosTotais > 5 && pontosTotais <9){
+        out.style = "color:yellow;";
+        out.value = "Senha Moderada";
+        div.style = "background-color:yellow;width: 50%;";
+    }else{
+        out.style = "color:green;";
+        out.value = "Senha Forte";
+        div.style = "background-color:green;width: 100%;";
+    }
+}
 
-
+function show() {
+    senha = document.getElementById("idPassword")
+    if (senha.type === "password") {
+        senha.type = "text";
+        botaoHide.innerHTML = "HIDE"
+      } else {
+        senha.type = "password";
+        botaoHide.innerHTML = "SHOW"
+      }
+}
