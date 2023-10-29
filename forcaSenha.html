@@ -6,31 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Força Senha</title>
     <style>
-        * {
-            justify-content: space-around;
-            text-align: center;
+        
+        body{
+            background-color: rgb(34, 33, 33);
+        }
+
+        #idForm{
+            display: inline-block;
             background-color: rgb(43, 42, 42);
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        
+        #idPassword{
+            background-color: rgb(34, 33, 33);
+            border: 25px;
+        }
+        #idButton{
+            border: 0;
+            background-color: rgb(43, 42, 42);
+            height: 20px;
+            width: 50px;
+            text-align: center;
+            color: white;
+        }
+        #idFieldPass{
+            padding: 5px;
+            border: 6px;
+            border-color: rgb(34, 33, 33);
+            background-color: rgb(34, 33, 33);
+            width: fit-content;
+        }
+        #idLbl{
+            color: gray;
+            opacity: 45%; 
             
         }
         #idDiv{
             height: 4px;
-            
         }
-
 
     </style>
 </head>
 
 <body>
-    <form action="">
-        <fieldset>
-            <label for="">Verificar força da senha</label>
-            <div>
-                <input type="password" name="nmPassword" id="idPassword" placeholder="password">
+    <form action="" id="idForm">
+        
+            <label for="" id="idLbl">Verificar força da senha</label>
+            
+            <div id="divPassword">
+                <fieldset id="idFieldPass">
+                <input type="password" name="nmPassword" id="idPassword" placeholder="Password">
                 <button type="button" id="idButton">SHOW</button>
+                </fieldset>
             </div>
             <output id="idOut"></output>
-        </fieldset>
+        
         <div id="idDiv"></div>
     </form>
 
